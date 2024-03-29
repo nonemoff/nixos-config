@@ -14,7 +14,7 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/8f74cb6c-0bad-4fc1-96e5-097ac902aed1";
+      device = "/dev/disk/by-uuid/7c38d28e-d1b9-4ac5-9bfb-ce2dd3e2f5a2";
       fsType = "btrfs";
       options = [ "subvol=@" ];
     };

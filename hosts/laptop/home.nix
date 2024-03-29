@@ -8,6 +8,12 @@ in
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
+  # Modules
+  module.git.enable = true;
+  module.alacritty.enable = true;
+  module.zsh.enable = true;
+  module.theme.gruvbox-gtk.enable = true;
+
   home.packages = with pkgs; [
     # EDITOR
     neovim
@@ -15,11 +21,12 @@ in
     ctags
     ripgrep
 
+    # Compiler
+    clang
+    rustup
+
     # ls
     eza
-
-    # Terminal
-    alacritty
 
     # Browser
     firefox-devedition
@@ -44,14 +51,6 @@ in
     '')
   ];
 
-  home.file = {
-    ".config/alacritty".source = ./dotfiles/alacritty;
-    ".config/hypr".source = ./dotfiles/hypr;
-
-    ## powerlevel10k
-    #".p10k.zsh".source = ./dotfiles/shell/.p10k.zsh;
-  };
-
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -60,8 +59,7 @@ in
   # Shell
   ###
   home.shellAliases = {
-    # Neovim
-    v = "nvim";
+    v = "$EDITOR";
 
     # ls
     ls = "eza --color=auto";
@@ -72,48 +70,6 @@ in
 
     # mkdir
     md = "mkdir -p";
-  };
-
-  programs.zsh = {
-    enable = true;
-
-    # Options
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    # History
-    history.size = 10000;
-    history.path = "${config.xdg.dataHome}/zsh/history";
-
-    initExtraBeforeCompInit = ''
-      # p10k instant prompt
-      P10K_INSTANT_PROMPT="$XDG_CACHE_HOME/p10k-instant-prompt-''${(%):-%n}.zsh"
-      [[ ! -r "$P10K_INSTANT_PROMPT" ]] || source "$P10K_INSTANT_PROMPT"
-    '';
-
-    plugins = with pkgs; [
-      {
-        file = "powerlevel10k.zsh-theme";
-        name = "powerlevel10k";
-        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = ./dotfiles/shell/.p10k.zsh;
-        file = "p10k.zsh";
-      }
-    ];
-
-    ## Oh My Zsh
-    #oh-my-zsh = {
-    #  enable = true;
-    #  theme = "powerlevel10k";
-    #  plugins = [
-    #    "nix-zsh-completions"
-    #  ];
-    #};
-
   };
 
   ###

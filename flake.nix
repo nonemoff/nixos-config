@@ -22,14 +22,18 @@
             inherit system;
             specialArgs = { inherit inputs username hostname; };
             modules = [
-              ./configuration.nix
+              ./hosts/laptop/configuration.nix
+              ./modules/os
             ];
           };
       };
       homeConfigurations = {
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home-manager/home.nix ];
+          modules = [
+            ./hosts/laptop/home.nix
+            ./modules/home
+          ];
         };
       };
     };
