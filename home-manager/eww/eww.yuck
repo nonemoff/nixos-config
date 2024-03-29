@@ -1,0 +1,126 @@
+(defwindow bar
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "90%"
+    :anchor "top center"
+  )
+  :stacking "fg"
+  :exclusive true
+  :windowtype "dock"
+  :wm-ignore false
+  (bar)
+)
+
+
+(defwidget bar []
+  (box :orientation "h"
+    (workspaces)
+    (submap)
+    (music)
+    (sidestuff)
+  )
+)
+
+; Sidestuff group
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric
+      :label "🔊"
+      :value volume
+      :onchange "wpctl set-volume @DEFAULT_SINK@ {}%")
+    (metric
+      :label ""
+      :value {EWW_RAM.used_mem_perc}
+      :onchange "")
+    (metric
+      :label "💾"
+      :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+      :onchange "")
+    time
+  )
+)
+
+; Metric with slider
+(defwidget metric [label value onchange]
+  (box
+    :orientation "h"
+    :class "metric"
+    :space-evenly false
+    (box :class "label" label)
+    (scale
+      :min 0
+      :max 101
+      :active {onchange != ""}
+      :value value
+      :onchange onchange
+    )
+  )
+)
+
+; Music
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+(defwidget music []
+  (box
+    :class "music"
+    :orientation "r"
+    :halign "end"
+    :space-evenly false
+    {music != "" ? "🎵${music}" : ""}
+  )
+)
+
+; Submap
+(defwidget submap []
+  (box
+    :halign "start"
+    "a"
+  )
+)
+
+; Workspaces
+(defwidget workspaces []
+  (eventbox
+    :onscroll "bash ~/.config/eww/scripts/change-active-workspace {} ${current_workspace}"
+    :class "workspaces-widget"
+    (box
+      :space-evenly true
+      (label
+        :text "${workspaces}${current_workspace}"
+        :visible false)
+      (for workspace in workspaces
+        (button
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          (box
+            :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
+            (label :text "${workspace.id}")
+          )
+        )
+      )
+    )
+  )
+)
+
+;; Variables
+
+; Submap
+(deflisten submap :initial ""
+  "bash ~/.config/eww/scripts/get-submap")
+
+; Workspaces
+(deflisten workspaces :initial "[]"
+  "bash ~/.config/eww/scripts/get-workspaces")
+
+; Current workspace
+(deflisten current_workspace :initial "1"
+  "bash ~/.config/eww/scripts/get-active-workspace")
+
+; Volume var
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+; Time var
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")

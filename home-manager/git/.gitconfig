@@ -1,0 +1,59 @@
+[core]
+  autocrlf = input
+  eol = lf
+
+[user]
+  email = 5qub6pfp@duck.com
+  name = Oleg Nikitin
+  signingkey = ~/.ssh/github/signing.pub
+
+[gpg]
+  format = ssh
+
+[help]
+  autocorrect = 10
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[color]
+  ui = auto
+
+# Commands
+[commit]
+  gpgsign = true
+
+[merge]
+  ff = false
+
+[pull]
+  ff = true
+
+[color "branch"]
+  current = magenta bold
+  local = yellow bold
+  remote = cyan bold
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "status"]
+  branch = magenta bold
+  added = green bold
+  changed = yellow bold
+  untracked = red bold
+  unmerged = "#fe8019"
+
+[alias]
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  hist = "log --graph --date=short --decorate --format=format:'%C(bold blue)%h%C(reset) %C(italic brightwhite)at%C(reset) %C(bold cyan)%ad%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset) %C(italic brightwhite)by%C(reset) %C(ul bold #fe8019)%an%C(reset)%n''            %C(italic brightwhite)message:%C(reset) %C(white)%s%C(reset) %C(reset)'"
+
+[init]
+  defaultBranch = master

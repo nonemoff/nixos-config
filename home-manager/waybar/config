@@ -1,0 +1,220 @@
+{
+  "layer": "top",
+  "position": "top",
+  //"height": 32,
+  "spacing": 4,
+
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "idle_inhibitor",
+    "network",
+    "custom/updates",
+    "hyprland/submap"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    //"cpu",
+    //"memory",
+    //"temperature",
+    "backlight",
+    "wireplumber",
+    "battery",
+    "clock"
+  ],
+
+  // Modules configuration
+  "keyboard-state": {
+    "numlock": false,
+    "capslock": false,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    //"all-outputs": false,
+    "format": "({name} {icon})",
+    //"format": "{name}",
+    "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+    "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "hyprland/window": {
+    "max-length": 50,
+    "separate-outputs": true
+  },
+  "clock": {
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "format-alt": "{:%Y-%m-%d}",
+    "calendar": {
+      "format": {
+      }
+    }
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    },
+    "tooltip": true
+  },
+  "disk": {
+    "format": "{percentage_free}% ",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "{}% ",
+    "states": {
+      "warning": 70,
+      "critical": 90
+    }
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+  "hyprland/language": {
+    //"format": "{flag}",
+    "min-length": 3,
+    "max-length": 18
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "network": {
+    "interval": 2,
+    "format-wifi": " {essid}",
+    "format-ethernet": "⬡ {ifname}",
+    "format-linked": "⬡ {ifname}",
+    "format-disconnected": "  ",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}\n {bandwidthDownBits}\n {bandwidthUpBits}"
+  },
+  "wireplumber": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-bluetooth-muted": " ",
+    "format-muted": "",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "format-icons": [""],
+    "on-click": "helvum"
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 2,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": " ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 6
+  },
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      }
+    ]
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{} {icon}",
+    "format-icons": {
+      "notification": " ",
+      "none": "",
+      "dnd-notification": " ",
+      "dnd-none": "",
+      "inhibited-notification": " ",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": " ",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/updates": {
+    "format": "{} {icon}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷",
+      "updated": "󰂪"
+    },
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates"
+  }
+}
+// vi: ft=json
