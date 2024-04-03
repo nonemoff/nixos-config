@@ -58,18 +58,6 @@ in
     EDITOR = "nvim";
   };
 
-  # Gnome custom-keybindings
-  dconf.settings."org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
-    binding = "<Super>x";
-    command = "xdg-terminal-exec";
-    name = "Open Terminal";
-  };
-  dconf.settings."org/gnome/settings-daemon/plugins/media-keys" = {
-    custom-keybindings = [
-      "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
-    ];
-  };
-
   ###
   # Shell
   ###
