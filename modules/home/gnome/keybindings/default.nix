@@ -7,6 +7,7 @@
   config = lib.mkIf config.module.gnome.keybindings.enable {
     dconf.settings = {
       "org/gnome/desktop/wm/keybindings" = {
+        close = [ "<Super>q" ];
         begin-move = [ "<Super>m" ];
         minimize = [ ];
         move-to-monitor-down = [ "<Shift><Super>j" ];
