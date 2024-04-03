@@ -7,6 +7,7 @@
     ./themes/gruvbox-gtk
 
     ./gnome/extensions/dash-to-dock
+    ./gnome/extensions/clipboard-indicator
   ];
 
   module.git.enable = lib.mkDefault true;
@@ -18,4 +19,5 @@
 
   # Gnome extensions
   module.gnome.extension.dash-to-dock.enable = lib.mkDefault true;
+  module.gnome.extension.clipboard-indicator.enable = lib.mkDefault true;
 }
