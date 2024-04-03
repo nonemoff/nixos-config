@@ -7,7 +7,7 @@
   config = lib.mkIf config.module.gnome.enable {
     nixpkgs.overlays = [
       (final: prev: {
-        gnome = prev.gnome.overrideScope' (gnomeFinal: gnomePrev: {
+        gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {
           mutter = gnomePrev.mutter.overrideAttrs (old: {
             src = pkgs.fetchgit {
               url = "https://gitlab.gnome.org/vanvugt/mutter.git";
@@ -23,15 +23,29 @@
     services.xserver = {
       enable = true;
       desktopManager = {
+        xterm.enable = false;
         gnome = {
           enable = true;
         };
       };
     };
+
+    xdg = {
+      portal = {
+        enable = true;
+      };
+    };
+
+    environment.sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
+
     environment.systemPackages = [
       pkgs.gnomeExtensions.appindicator
       pkgs.gnome3.gnome-tweaks
+      pkgs.wl-clipboard
     ];
+
     services.udev.packages = [
       pkgs.gnome.gnome-settings-daemon
     ];
