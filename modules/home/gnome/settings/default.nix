@@ -11,6 +11,13 @@
         focus-mode = "sloppy";
         resize-with-right-button = false;
       };
+      "org/gnome/mutter" = {
+        dynamic-workspaces = true;
+        edge-tiling = true;
+      };
+      "org/gnome/desktop/interface/" = {
+        enable-hot-corners = false;
+      };
     };
   };
 }
