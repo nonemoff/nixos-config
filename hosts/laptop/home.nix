@@ -35,6 +35,7 @@ in
     vesktop
     telegram-desktop
     xdg-terminal-exec
+    spotify
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
