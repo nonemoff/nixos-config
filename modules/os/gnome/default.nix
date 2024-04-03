@@ -40,10 +40,11 @@
       NIXOS_OZONE_WL = "1";
     };
 
-    environment.systemPackages = [
-      pkgs.gnomeExtensions.appindicator
-      pkgs.gnome3.gnome-tweaks
-      pkgs.wl-clipboard
+    environment.systemPackages = with pkgs; [
+      gnomeExtensions.appindicator
+      gnome3.gnome-tweaks
+      wl-clipboard
+      xclip
     ];
 
     services.udev.packages = [
