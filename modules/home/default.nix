@@ -6,6 +6,7 @@
 
     ./themes/gruvbox-gtk
 
+    ./gnome/settings
     ./gnome/extensions/dash-to-dock
     ./gnome/extensions/clipboard-indicator
     ./gnome/extensions/gnome-ui-tune
@@ -18,7 +19,10 @@
   # Themes
   module.theme.gruvbox-gtk.enable = lib.mkDefault false;
 
-  # Gnome extensions
+  # Gnome
+  ## Settings
+  module.gnome.settings.enable = lib.mkDefault true;
+  ## Extensions
   module.gnome.extension.dash-to-dock.enable = lib.mkDefault true;
   module.gnome.extension.clipboard-indicator.enable = lib.mkDefault true;
   module.gnome.extension.gnome-ui-tune.enable = lib.mkDefault true;
