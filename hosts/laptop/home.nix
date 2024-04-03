@@ -13,6 +13,8 @@ in
   module.alacritty.enable = true;
   module.zsh.enable = true;
   module.theme.gruvbox-gtk.enable = true;
+  ## Gnome extensions
+  module.gnome.extension.vitals.enable = true;
 
   home.packages = with pkgs; [
     # EDITOR
