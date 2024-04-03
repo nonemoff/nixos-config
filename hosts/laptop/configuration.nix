@@ -74,6 +74,10 @@
   # Display/Desktop Manager
   services.xserver = {
     enable = true;
+    xkb = {
+      layout = "us,ru";
+      options = "caps:escape_shifted_capslock";
+    };
     displayManager = {
       lightdm = {
         enable = true;
