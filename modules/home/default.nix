@@ -8,6 +8,7 @@
 
     ./gnome/extensions/dash-to-dock
     ./gnome/extensions/clipboard-indicator
+    ./gnome/extensions/gnome-ui-tune
   ];
 
   module.git.enable = lib.mkDefault true;
@@ -20,4 +21,5 @@
   # Gnome extensions
   module.gnome.extension.dash-to-dock.enable = lib.mkDefault true;
   module.gnome.extension.clipboard-indicator.enable = lib.mkDefault true;
+  module.gnome.extension.gnome-ui-tune.enable = lib.mkDefault true;
 }
