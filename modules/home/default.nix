@@ -13,6 +13,7 @@
     ./gnome/extensions/gnome-ui-tune
     ./gnome/extensions/blur-my-shell
     ./gnome/extensions/vitals
+    ./gnome/extensions/caffeine
   ];
 
   module.git.enable = lib.mkDefault true;
@@ -31,6 +32,7 @@
   module.gnome.extension.dash-to-dock.enable = lib.mkDefault true;
   module.gnome.extension.clipboard-indicator.enable = lib.mkDefault true;
   module.gnome.extension.gnome-ui-tune.enable = lib.mkDefault true;
+  module.gnome.extension.caffeine.enable = lib.mkDefault true;
   module.gnome.extension.blur-my-shell.enable = lib.mkDefault false;
   module.gnome.extension.vitals.enable = lib.mkDefault false;
 }
