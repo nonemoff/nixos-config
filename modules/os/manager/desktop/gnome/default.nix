@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }: {
   options = {
-    module.gnome.enable =
+    module.manager.desktop.gnome.enable =
       lib.mkEnableOption "enables gnome";
   };
 
-  config = lib.mkIf config.module.gnome.enable {
+  config = lib.mkIf config.module.manager.desktop.gnome.enable {
     nixpkgs.overlays = [
       (final: prev: {
         gnome = prev.gnome.overrideScope (gnomeFinal: gnomePrev: {

@@ -6,10 +6,10 @@
   # Modules
   module = {
     audio.enable = true;
-    gnome.enable = true;
     tlp.enable = true;
     manager = {
       display.lightdm.enable = true;
+      desktop.gnome.enable = true;
     };
   };
 
