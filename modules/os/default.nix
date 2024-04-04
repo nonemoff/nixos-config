@@ -3,6 +3,8 @@
     ./tlp
     ./audio
     ./gnome
+
+    ./manager/display
   ];
 
   module.audio.enable = lib.mkDefault false;

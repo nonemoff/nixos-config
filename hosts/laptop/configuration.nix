@@ -8,6 +8,9 @@
     audio.enable = true;
     gnome.enable = true;
     tlp.enable = true;
+    manager = {
+      display.lightdm.enable = true;
+    };
   };
 
   # Nix
@@ -84,11 +87,6 @@
     xkb = {
       layout = "us,ru";
       options = "caps:escape_shifted_capslock";
-    };
-    displayManager = {
-      lightdm = {
-        enable = true;
-      };
     };
   };
 
