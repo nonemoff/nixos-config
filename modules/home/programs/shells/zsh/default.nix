@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }: {
   options = {
-    module.zsh.enable =
+    module.program.shell.zsh.enable =
       lib.mkEnableOption "enables zsh";
   };
 
-  config = lib.mkIf config.module.zsh.enable {
+  config = lib.mkIf config.module.program.shell.zsh.enable {
     programs.zsh = {
       enable = true;
 

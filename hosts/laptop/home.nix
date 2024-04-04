@@ -3,18 +3,43 @@ let
   username = "nejern";
 in
 {
-  # Home Manager needs a bit of information about you and the paths it should
-  # manage.
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
   # Modules
-  module.git.enable = true;
-  module.alacritty.enable = true;
-  module.zsh.enable = true;
-  module.theme.gruvbox-gtk.enable = true;
-  ## Gnome extensions
-  module.gnome.extension.vitals.enable = true;
+  module = {
+    # Programs
+    program = {
+      git.enable = true;
+      # Terminal
+      terminal.alacritty.enable = true;
+      # Shell
+      shell.zsh.enable = true;
+    };
+
+    # Theme
+    theme.gruvbox-gtk.enable = true;
+
+    ## Desktop
+    desktop = {
+      # Gnome
+      gnome = {
+        # Settings
+        settings.enable = true;
+        # Keybindings
+        keybindings.enable = true;
+        # Extensions
+        extension = {
+          dash-to-dock.enable = true;
+          clipboard-indicator.enable = true;
+          gnome-ui-tune.enable = true;
+          caffeine.enable = true;
+          blur-my-shell.enable = false;
+          vitals.enable = false;
+        };
+      };
+    };
+  };
 
   home.packages = with pkgs; [
     # EDITOR

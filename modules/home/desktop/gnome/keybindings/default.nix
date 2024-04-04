@@ -1,10 +1,10 @@
 { config, lib, ... }: {
   options = {
-    module.gnome.keybindings.enable =
+    module.desktop.gnome.keybindings.enable =
       lib.mkEnableOption "enables gnome keybindings";
   };
 
-  config = lib.mkIf config.module.gnome.keybindings.enable {
+  config = lib.mkIf config.module.desktop.gnome.keybindings.enable {
     dconf.settings = {
       "org/gnome/desktop/wm/keybindings" = {
         close = [ "<Super>q" ];

@@ -1,10 +1,10 @@
 { pkgs, lib, config, ... }: {
   options = {
-    module.alacritty.enable =
+    module.program.terminal.alacritty.enable =
       lib.mkEnableOption "enables alacritty";
   };
 
-  config = lib.mkIf config.module.alacritty.enable {
+  config = lib.mkIf config.module.program.terminal.alacritty.enable {
     home.file.".config/alacritty".source = ./config;
     home.packages = [ pkgs.alacritty ];
     xdg.desktopEntries = {

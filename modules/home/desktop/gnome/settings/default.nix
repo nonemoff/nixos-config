@@ -1,10 +1,10 @@
 { config, lib, ... }: {
   options = {
-    module.gnome.settings.enable =
+    module.desktop.gnome.settings.enable =
       lib.mkEnableOption "enables gnome settings";
   };
 
-  config = lib.mkIf config.module.gnome.settings.enable {
+  config = lib.mkIf config.module.desktop.gnome.settings.enable {
     dconf.settings = {
       "org/gnome/desktop/wm/preferences" = {
         auto-raise = false;

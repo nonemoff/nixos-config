@@ -1,10 +1,10 @@
 { lib, config, ... }: {
   options = {
-    module.git.enable =
+    module.program.git.enable =
       lib.mkEnableOption "enables git";
   };
 
-  config = lib.mkIf config.module.git.enable {
+  config = lib.mkIf config.module.program.git.enable {
     home.file.".gitconfig".source = ./.gitconfig;
   };
 }

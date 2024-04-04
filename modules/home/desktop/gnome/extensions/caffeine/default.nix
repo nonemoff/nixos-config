@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }: {
   options = {
-    module.gnome.extension.caffeine.enable =
+    module.desktop.gnome.extension.caffeine.enable =
       lib.mkEnableOption "enables caffeine gnome extension";
   };
 
-  config = lib.mkIf config.module.gnome.extension.caffeine.enable {
+  config = lib.mkIf config.module.desktop.gnome.extension.caffeine.enable {
     home.packages = [
       pkgs.gnomeExtensions.caffeine
     ];

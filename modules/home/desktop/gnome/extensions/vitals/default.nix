@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }: {
   options = {
-    module.gnome.extension.vitals.enable =
+    module.desktop.gnome.extension.vitals.enable =
       lib.mkEnableOption "enables vitals gnome extension";
   };
 
-  config = lib.mkIf config.module.gnome.extension.vitals.enable {
+  config = lib.mkIf config.module.desktop.gnome.extension.vitals.enable {
     home.packages = [
       pkgs.gnomeExtensions.vitals
     ];

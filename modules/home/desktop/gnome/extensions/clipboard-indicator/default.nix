@@ -1,10 +1,10 @@
 { pkgs, config, lib, ... }: {
   options = {
-    module.gnome.extension.clipboard-indicator.enable =
+    module.desktop.gnome.extension.clipboard-indicator.enable =
       lib.mkEnableOption "enables clipboard-indicator gnome extension";
   };
 
-  config = lib.mkIf config.module.gnome.extension.clipboard-indicator.enable {
+  config = lib.mkIf config.module.desktop.gnome.extension.clipboard-indicator.enable {
     home.packages = [
       pkgs.gnomeExtensions.clipboard-indicator
     ];
