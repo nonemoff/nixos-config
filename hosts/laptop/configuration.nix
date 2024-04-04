@@ -5,6 +5,9 @@
 
   # Modules
   module = {
+    program = {
+      virtualbox.enable = true;
+    };
     service = {
       audio.enable = true;
       tlp.enable = true;
@@ -26,7 +29,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = username;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "vboxusers" ];
     shell = pkgs.zsh;
   };
 
