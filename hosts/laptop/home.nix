@@ -17,8 +17,11 @@ in
       shell.zsh.enable = true;
     };
 
-    # Theme
-    theme.gruvbox-gtk.enable = true;
+    # Gtk
+    gtk = {
+      theme.gruvbox.enable = true;
+      cursor.numix.enable = true;
+    };
 
     ## Desktop
     desktop = {

@@ -1,7 +1,7 @@
 { lib, ... }: {
   imports = [
     ./programs
-    ./themes
+    ./gtk
     ./desktop
   ];
 }
