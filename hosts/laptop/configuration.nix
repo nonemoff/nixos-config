@@ -3,6 +3,13 @@
     ./hardware-configuration.nix
   ];
 
+  # Modules
+  module = {
+    audio.enable = true;
+    gnome.enable = true;
+    tlp.enable = true;
+  };
+
   # Nix
   nix = {
     settings = {
