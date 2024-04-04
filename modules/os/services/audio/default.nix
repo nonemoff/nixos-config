@@ -1,10 +1,10 @@
 { lib, config, ... }: {
   options = {
-    module.audio.enable =
+    module.service.audio.enable =
       lib.mkEnableOption "enables audio";
   };
 
-  config = lib.mkIf config.module.audio.enable {
+  config = lib.mkIf config.module.service.audio.enable {
     sound.enable = true;
     hardware.pulseaudio.enable = false;
     security.rtkit.enable = true;

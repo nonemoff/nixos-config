@@ -1,12 +1,8 @@
 { lib, ... }: {
   imports = [
-    ./tlp
-    ./audio
+    ./services
 
     ./manager/display
     ./manager/desktop
   ];
-
-  module.audio.enable = lib.mkDefault false;
-  module.tlp.enable = lib.mkDefault false;
 }

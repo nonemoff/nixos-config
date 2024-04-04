@@ -1,10 +1,10 @@
 { lib, config, ... }: {
   options = {
-    module.tlp.enable =
+    module.service.tlp.enable =
       lib.mkEnableOption "enables tlp";
   };
 
-  config = lib.mkIf config.module.tlp.enable {
+  config = lib.mkIf config.module.service.tlp.enable {
     services.power-profiles-daemon.enable = false;
     services.tlp = {
       enable = true;
