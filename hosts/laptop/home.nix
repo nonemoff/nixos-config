@@ -67,6 +67,7 @@ in
     xdg-terminal-exec
     spotify
     insomnia
+    jq
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
