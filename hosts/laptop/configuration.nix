@@ -13,7 +13,7 @@
       tlp.enable = true;
     };
     manager = {
-      display.lightdm.enable = true;
+      display.gdm.enable = true;
       desktop.gnome.enable = true;
     };
   };
