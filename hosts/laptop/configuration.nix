@@ -7,6 +7,7 @@
   module = {
     program = {
       virtualbox.enable = true;
+      podman.enable = true;
     };
     service = {
       audio.enable = true;
