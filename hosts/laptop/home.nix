@@ -66,6 +66,7 @@ in
     telegram-desktop
     xdg-terminal-exec
     spotify
+    insomnia
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
