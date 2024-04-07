@@ -61,6 +61,10 @@ in
     # Browser
     firefox-devedition
 
+    # k8s
+    kubectl
+    kubernetes-helm
+
     # Misc
     vesktop
     telegram-desktop
