@@ -22,6 +22,7 @@
   # Nix
   nix = {
     settings = {
+      auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
     };
   };
@@ -76,7 +77,7 @@
   };
 
   # System Packages
-  environment.systemPackages = with pkgs; [
+ environment.systemPackages = with pkgs; [
     home-manager
     git
     neovim
