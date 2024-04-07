@@ -38,7 +38,6 @@
           "rust"
           "colored-man-pages"
           "vi-mode"
-          "docker"
           "rust"
           "docker-compose"
         ];
