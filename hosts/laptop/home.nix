@@ -73,6 +73,7 @@ in
     spotify
     insomnia
     jq
+    go-task
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
