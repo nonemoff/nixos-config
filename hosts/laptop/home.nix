@@ -1,8 +1,4 @@
-{ config, pkgs, ... }:
-let
-  username = "nejern";
-in
-{
+{ config, pkgs, username, ... }: {
   home.username = username;
   home.homeDirectory = "/home/${username}";
 

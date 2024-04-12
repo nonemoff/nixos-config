@@ -30,6 +30,7 @@
       homeConfigurations = {
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit username; };
           modules = [
             ./hosts/laptop/home.nix
             ./modules/home
