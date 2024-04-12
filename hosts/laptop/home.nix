@@ -75,6 +75,7 @@ in
     jq
     go-task
     onlyoffice-bin_latest
+    python312Packages.grip
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
