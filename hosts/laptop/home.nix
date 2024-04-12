@@ -15,6 +15,8 @@ in
       terminal.alacritty.enable = true;
       # Shell
       shell.zsh.enable = true;
+      # Browser
+      firefox.enable = true;
     };
 
     # Gtk
@@ -57,9 +59,6 @@ in
 
     # ls
     eza
-
-    # Browser
-    firefox-devedition
 
     # k8s
     kubectl
