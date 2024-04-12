@@ -74,6 +74,7 @@ in
     insomnia
     jq
     go-task
+    onlyoffice-bin_latest
 
     # Fonts
     #(pkgs.nerdfonts.override { fonts = [ "MesloLGSNerdFont" ]; })
