@@ -11,16 +11,23 @@
     };
     service = {
       audio.enable = true;
-      tlp.enable = true;
+      tlp.enable = false;
+      openvpn.enable = true;
     };
     manager = {
       display.gdm.enable = true;
       desktop.gnome.enable = true;
+      desktop.hyprland.enable = true;
     };
   };
 
   # Nix
   nix = {
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 2d";
+    };
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
@@ -43,19 +50,20 @@
   networking.networkmanager.enable = true;
 
   # Bootloader
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-    };
-  };
-  #boot.loader.systemd-boot.enable = true;
-  #boot.loader.efi.canTouchEfiVariables = true;
+  #boot.loader = {
+  #  grub = {
+  #    enable = true;
+  #    device = "nodev";
+  #    efiSupport = true;
+  #    useOSProber = true;
+  #  };
+  #  efi = {
+  #    canTouchEfiVariables = true;
+  #  };
+  #};
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
@@ -83,6 +91,8 @@
     neovim
     wget
     curl
+    tcpdump
+    openvpn
   ];
 
   # OpenGL

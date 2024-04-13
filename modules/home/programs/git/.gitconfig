@@ -3,25 +3,25 @@
   eol = lf
 
 [user]
-  email = 5qub6pfp@duck.com
-  name = Oleg Nikitin
-  signingkey = ~/.ssh/github/signing.pub
+  email = ushiz.rush@gmail.com
+  name = Matvey Ushakoff
+  #signingkey = ~/.ssh/github/signing.pub
 
-[gpg]
-  format = ssh
+  #[gpg]
+  #  format = ssh
 
 [help]
   autocorrect = 10
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+  #[url "git@github.com:"]
+  #  insteadOf = https://github.com/
 
 [color]
   ui = auto
 
 # Commands
-[commit]
-  gpgsign = true
+  #[commit]
+  #  gpgsign = true
 
 [merge]
   ff = false

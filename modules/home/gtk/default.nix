@@ -1,6 +1,7 @@
 { lib, ... }: {
   imports = [
     ./themes/gruvbox
+    ./themes/adad
     ./cursors/numix
   ];
 

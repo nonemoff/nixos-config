@@ -17,7 +17,8 @@
 
     # Gtk
     gtk = {
-      theme.gruvbox.enable = true;
+      theme.gruvbox.enable = false;
+      theme.adad.enable = true;
       cursor.numix.enable = true;
     };
 

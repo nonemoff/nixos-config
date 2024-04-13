@@ -3,7 +3,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      username = "nejern";
+      username = "matvey";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -14,15 +14,15 @@
     in
     {
       nixosConfigurations = {
-        laptop =
+        pc =
           let
-            hostname = "Nejern-laptop";
+            hostname = "matvey-pc";
           in
           nixpkgs.lib.nixosSystem {
             inherit system;
             specialArgs = { inherit inputs username hostname pkgs; };
             modules = [
-              ./hosts/laptop/configuration.nix
+              ./hosts/pc/configuration.nix
               ./modules/os
             ];
           };
@@ -32,7 +32,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit username; };
           modules = [
-            ./hosts/laptop/home.nix
+            ./hosts/pc/home.nix
             ./modules/home
           ];
         };
