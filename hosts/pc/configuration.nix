@@ -93,6 +93,7 @@
     curl
     tcpdump
     openvpn
+    sway-contrib.grimshot
   ];
 
   # OpenGL
